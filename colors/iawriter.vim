@@ -5,6 +5,8 @@
 
 set guioptions-=T
 set guioptions-=r "remove righthand scrollbar
+set wrap linebreak textwidth=0 "softwrap
+
 hi Normal guibg=#f0f0f0 guifg=#424242
 hi NonText term=bold ctermfg=253 ctermbg=15 gui=bold guifg=#dfdfdf guibg=#f0f0f0
 "set guifont=Lucida\ Sans\ Typewriter:h19
