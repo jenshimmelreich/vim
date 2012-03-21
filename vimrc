@@ -113,7 +113,7 @@ vmap <tab> >gv
 vmap <s-tab> <gv
 
 " Toggle Case with ü
-nmap ü ~
+nmap ö ~
 
 " Buffer naviation - irgendetwas geht da nicht
 " map <M-Left> :bprevious<CR>
