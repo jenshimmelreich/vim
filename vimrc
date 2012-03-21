@@ -122,7 +122,13 @@ nmap ü ~
 " color-script.sh  | col -b | sed 's/0;[0-9]*m//g' 
 map <F12> :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 map <F15> :w<CR> :! vows --spec % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
-map <C-h> :tabprev <CR>
-map <C-l> :tabnext <CR>
-map <C-k> :bprev <CR>
-map <C-j> :bnext <CR>
+" map <C-h> :tabprev <CR>
+" map <C-l> :tabnext <CR>
+" map <C-k> :bprev <CR>
+" map <C-j> :bnext <CR>
+
+" easier navigation between split windows
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
