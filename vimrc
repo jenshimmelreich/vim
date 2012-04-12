@@ -101,7 +101,9 @@ set shiftwidth=2
 set expandtab
 set nobackup
 set autoindent
-set pfn=courier:h13
+set pfn=courier:h12
+set ignorecase
+set smartcase
 
 if has('gui_running')
   colorscheme mac_classic
