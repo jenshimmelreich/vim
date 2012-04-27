@@ -137,4 +137,5 @@ nnoremap <c-l> <c-w>l
 
 let mapleader = ","
 map <leader>, :b#<CR>
-
+" Search recursive for word under cursor in root of vim-process
+map <leader>f :execute "grep -r " . expand("<cword>") . " . " <Bar> cw <CR>
