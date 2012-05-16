@@ -101,7 +101,7 @@ set shiftwidth=2
 set expandtab
 set nobackup
 set autoindent
-set pfn=courier:h12
+set pfn=courier:h10
 set ignorecase
 set smartcase
 
