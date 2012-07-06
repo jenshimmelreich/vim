@@ -87,7 +87,7 @@ endif
 
 " Meine Ergaenzungen
 " autocmd FileType ruby set omnifunc=rubycomplete#Complete
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 filetype off
 filetype plugin indent on
 syntax on
@@ -117,6 +117,7 @@ nmap ö ~
 " map <M-Right> :bnext<CR>
 
 " color-script.sh  | col -b | sed 's/0;[0-9]*m//g' 
+map ü :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 map <F12> :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 map <F15> :w<CR> :! vows --spec % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 " map <C-h> :tabprev <CR>
@@ -133,7 +134,7 @@ nnoremap <c-l> <c-w>l
 let mapleader = ","
 map <leader>, :b#<CR>
 " Search recursive for word under cursor in root of vim-process
-map <leader>f :execute "grep -r " . expand("<cword>") . " . " <Bar> cw <CR>
+map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
 
 " escape from insertmode without esc
 inoremap <c-]> <Esc>
