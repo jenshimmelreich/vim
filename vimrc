@@ -116,7 +116,7 @@ nmap ö ~
 " map <M-Left> :bprevious<CR>
 " map <M-Right> :bnext<CR>
 
-" color-script.sh  | col -b | sed 's/0;[0-9]*m//g' 
+" run tests
 map ü :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 map <F12> :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 map <F15> :w<CR> :! vows --spec % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
