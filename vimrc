@@ -9,11 +9,6 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
-" When started as "evim", evim.vim will already have done these settings.
-if v:progname =~? "evim"
-  finish
-endif
-
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
@@ -121,7 +116,7 @@ nmap ö ~
 " map <M-Left> :bprevious<CR>
 " map <M-Right> :bnext<CR>
 
-" color-script.sh  | col -b | sed 's/0;[0-9]*m//g' 
+" run tests
 map ü :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 map <F12> :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 map <F15> :w<CR> :! vows --spec % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
