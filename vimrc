@@ -140,6 +140,9 @@ let mapleader = ","
 map <leader>, :b#<CR>
 " Search recursive for word under cursor in root of vim-process
 map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
+" Umstellung von breit (w - 180) auf schmal (s - 80)
+map <leader>w :set columns=180<CR>
+map <leader>s :set columns=100<CR>
 
 " escape from insertmode without esc
 inoremap <c-]> <Esc>
