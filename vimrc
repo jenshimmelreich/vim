@@ -17,31 +17,16 @@ set nocompatible
 set backspace=indent,eol,start
 
 set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set ruler		      " show the cursor position all the time
+set showcmd		    " display incomplete commands
+set incsearch		  " do incremental searching
+set hlsearch      " highlight searches
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
+set scrolloff=3   " keep 3 lines when scrolling
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  "set hlsearch
-endif
+syntax on               " turn syntax highlighting on by default
+filetype on             " detect type of file
+filetype indent on      " load indent file for specific file type
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
