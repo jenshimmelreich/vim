@@ -126,3 +126,5 @@ map <leader>s :set columns=100<CR>
 
 " escape from insertmode without esc
 inoremap <c-]> <Esc>
+inoremap <c-SPACE> <Esc>
+
