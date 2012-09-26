@@ -128,3 +128,10 @@ map <leader>s :set columns=100<CR>
 inoremap <c-]> <Esc>
 inoremap <c-SPACE> <Esc>
 
+" Softwrap
+set wrap linebreak textwidth=0 "softwrap
+" Textmovements for softwrap
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
