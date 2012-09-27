@@ -117,7 +117,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 
 let mapleader = ","
-map <leader>, :b#<CR>
+map <leader>, :b!#<CR>
 " Search recursive for word under cursor in root of vim-process
 map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
 " Umstellung von breit (w - 180) auf schmal (s - 80)
