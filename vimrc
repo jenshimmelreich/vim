@@ -22,7 +22,7 @@ set showcmd		    " display incomplete commands
 set incsearch		  " do incremental searching
 set hlsearch      " highlight searches
 
-set scrolloff=3   " keep 3 lines when scrolling
+" set scrolloff=3   " keep 3 lines when scrolling
 
 syntax on               " turn syntax highlighting on by default
 filetype on             " detect type of file
