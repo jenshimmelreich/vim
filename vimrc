@@ -110,13 +110,14 @@ map <F15> :w<CR> :! vows --spec % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
 " map <C-k> :bprev <CR>
 " map <C-j> :bnext <CR>
 
+let mapleader = ","
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
+nnoremap <leader>; <c-w>+
 
-let mapleader = ","
 map <leader>, :b!#<CR>
 " Search recursive for word under cursor in root of vim-process
 map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
