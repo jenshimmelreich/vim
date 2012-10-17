@@ -140,3 +140,8 @@ vnoremap k gk
 " Move line
 nnoremap <d-j> :m .+1<CR>==
 nnoremap <d-k> :m .-2<CR>
+
+" NerdTree
+map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <leader>e :NERDTreeFind<CR>
+nmap <leader>nt :NERDTreeFind<CR>
