@@ -84,6 +84,8 @@ set autoindent
 set pfn=courier:h10
 set ignorecase
 set smartcase
+" Set visual bell (basically no audio notifications)
+set vb
 
 if has('gui_running')
   colorscheme mac_classic
