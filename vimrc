@@ -88,7 +88,7 @@ set smartcase
 set vb
 
 if has('gui_running')
-  colorscheme mac_classic
+ colorscheme mac_classic
 "  colorscheme solarized
 "  set background=dark
 endif
@@ -125,9 +125,8 @@ map <leader>, :b!#<CR>
 map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
 " Umstellung von breit (w - 180) auf schmal (s - 80)
 " map <leader>w :set columns=180<CR>
+map <leader>w :set fuoptions+=maxhorz<CR>
 map <leader>s :set columns=100<CR>
-" Fullscreenmode with maximum width
-map <leader>w :set fuopt+=maxhorz<CR>
 
 " escape from insertmode without esc
 inoremap <c-]> <Esc>
@@ -149,3 +148,4 @@ nnoremap <d-k> :m .-2<CR>
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
+
