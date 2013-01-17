@@ -1,4 +1,5 @@
-set guifont=Monaco:h14
+" set guifont=Monaco:h14
+set guifont=Source\ Code\ Pro:h15
 set guioptions-=T
 set guioptions-=r "remove righthand scrollbar
 set columns=120
