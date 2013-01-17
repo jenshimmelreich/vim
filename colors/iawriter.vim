@@ -23,8 +23,11 @@ inoremap <Up> <C-o>gk
 hi Normal guibg=#f0f0f0 guifg=#424242
 hi NonText term=bold ctermfg=253 ctermbg=15 gui=bold guifg=#dfdfdf guibg=#f0f0f0
 " Use:  cousine: http://www.fontex.org/download/Cousine.ttf)
-set guifont=Cousine:h20
-set linespace=12
+" set guifont=Cousine:h20
+set guifont=Source\ Code\ Pro:h19
+" How to set a different font variant as bold?
+" hi htmlH1 font=Source\ Code\ Pro\ Semibold:h19 Semibold doesn't work
+set linespace=11
 hi htmlTagName guifg=#424242
 set columns=65
 set fuoptions=maxvert,background:Normal
