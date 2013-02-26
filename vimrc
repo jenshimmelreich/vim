@@ -124,7 +124,7 @@ nnoremap <leader>; <c-w>+
 
 map <leader>, :b!#<CR>
 " Search recursive for word under cursor in root of vim-process
-map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
+" map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
 " Umstellung von breit (w - 180) auf schmal (s - 80)
 " map <leader>w :set columns=180<CR>
 map <leader>w :set fuoptions+=maxhorz<CR>
@@ -142,12 +142,10 @@ nnoremap k gk
 vnoremap j gj
 vnoremap k gk
 
-" Move line
-nnoremap <d-j> :m .+1<CR>==
-nnoremap <d-k> :m .-2<CR>
-
 " NerdTree
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
 
+" Ack-Mapping
+nmap <leader>f :execute ":Ack " . expand("<cword>")<CR>
