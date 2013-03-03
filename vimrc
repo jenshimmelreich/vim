@@ -153,4 +153,4 @@ nmap <leader>f :execute ":Ack " . expand("<cword>")<CR>
 " folding
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-set foldnestmax=3
+set foldnestmax=2
