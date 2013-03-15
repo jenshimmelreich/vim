@@ -23,6 +23,7 @@ set ruler		      " show the cursor position all the time
 set showcmd		    " display incomplete commands
 set incsearch		  " do incremental searching
 set hlsearch      " highlight searches
+" set number        " show linenumbers
 
 " set scrolloff=3   " keep 3 lines when scrolling
 

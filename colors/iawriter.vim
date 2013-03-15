@@ -8,6 +8,7 @@
 set guioptions-=T
 set guioptions-=r "remove righthand scrollbar
 set wrap linebreak textwidth=0 "softwrap
+set nu!
 " Textmovements for softwrap
 nnoremap j gj
 nnoremap k gk
