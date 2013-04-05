@@ -10,15 +10,16 @@ setopt APPEND_HISTORY
 # setopt AUTO_RESUME   # tries to resume command of same name
 unsetopt BG_NICE   # do NOT nice bg commands
 setopt CORRECT     # command CORRECTION
-setopt EXTENDED_HISTORY    # puts timestamps in the history
+# setopt EXTENDED_HISTORY    # puts timestamps in the history
 # setopt HASH_CMDS   # turns on hashing
 #
 
 setopt ALL_EXPORT
 
-HISTFILE=$HOME/.zhistory
+HISTFILE=$HOME/.history
 HISTSIZE=1000
 SAVEHIST=1000
+setopt INC_APPEND_HISTORY
 HOSTNAME="`hostname -s`"
 PAGER=less
 EDITOR=vim

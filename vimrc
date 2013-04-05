@@ -23,6 +23,7 @@ set ruler		      " show the cursor position all the time
 set showcmd		    " display incomplete commands
 set incsearch		  " do incremental searching
 set hlsearch      " highlight searches
+" set number        " show linenumbers
 
 " set scrolloff=3   " keep 3 lines when scrolling
 
@@ -106,9 +107,30 @@ nmap ö ~
 " map <M-Right> :bnext<CR>
 
 " run tests
-map ü :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
-map <F12> :w<CR> :! vows % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
-map <F15> :w<CR> :! vows --spec % \| col -b \| sed -E 's/[[:digit:]]+m//g'<CR>
+function RunTests()
+  write
+  call SetTestfile()
+  call RunTestfile()
+endfunction
+
+function SetTestfile()
+  let currentfile = expand('%')
+  if currentfile =~ 'test'
+    let g:testfile = currentfile
+  endif
+endfunction
+
+function RunTestfile()
+  if exists('g:testfile')
+    execute ":! vows " . g:testfile . " | col -b | sed -E 's/[[:digit:]]+m//g'"
+  else
+    echo 'Keine Testdatei festgelegt'
+  endif
+endfunction
+
+map ü :call RunTests()<CR>
+map <F12> :call RunTests()<CR>
+
 " map <C-h> :tabprev <CR>
 " map <C-l> :tabnext <CR>
 " map <C-k> :bprev <CR>
@@ -141,6 +163,10 @@ nnoremap j gj
 nnoremap k gk
 vnoremap j gj
 vnoremap k gk
+
+" Space blättert
+nmap <Space> <PageDown>
+nmap <S-Space> <PageUp>
 
 " NerdTree
 map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
