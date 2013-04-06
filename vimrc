@@ -180,3 +180,9 @@ nmap <leader>f :execute ":Ack " . expand("<cword>")<CR>
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 set foldnestmax=2
+
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+ 
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
