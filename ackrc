@@ -3,3 +3,4 @@
 --type-set=jade=.jade
 --type-set=stylus=.sty
 --type-set=coffeescript=.coffee
+--type-set=markdown=.md
