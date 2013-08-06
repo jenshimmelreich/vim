@@ -107,22 +107,23 @@ nmap ö ~
 " map <M-Right> :bnext<CR>
 
 " run tests
-function RunTests()
+function! RunTests()
   write
   call SetTestfile()
   call RunTestfile()
 endfunction
 
-function SetTestfile()
+function! SetTestfile()
   let currentfile = expand('%')
   if currentfile =~ 'test'
     let g:testfile = currentfile
   endif
 endfunction
 
-function RunTestfile()
+function! RunTestfile()
   if exists('g:testfile')
-    execute ":! vows " . g:testfile . " | col -b | sed -E 's/[[:digit:]]+m//g'"
+    execute ":! mocha -C -R dot " . g:testfile
+    " execute ":Dispatch mocha -C -R dot " . g:testfile
   else
     echo 'Keine Testdatei festgelegt'
   endif

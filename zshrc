@@ -51,6 +51,8 @@ zstyle ':completion:*' special-dirs true
 # zstyle :compinstall filename '/home/makolee/.zshrc'
 
 autoload -U compinit && compinit
+# no completion for git
+compdef -d git
 
 # This loads RVM into a shell session
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
