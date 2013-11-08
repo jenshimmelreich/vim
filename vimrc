@@ -137,7 +137,9 @@ map <F12> :call RunTests()<CR>
 " map <C-k> :bprev <CR>
 " map <C-j> :bnext <CR>
 
-let mapleader = ","
+" let mapleader = ","
+nnoremap <SPACE> <Nop>
+let mapleader = " "
 " easier navigation between split windows
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
@@ -145,13 +147,13 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-l> <c-w>l
 nnoremap <leader>; <c-w>+
 
-map <leader>, :b!#<CR>
+map <leader><space> :b!#<CR>
 " Search recursive for word under cursor in root of vim-process
 " map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
 " Umstellung von breit (w - 180) auf schmal (s - 80)
 " map <leader>w :set columns=180<CR>
 map <leader>w :set fuoptions+=maxhorz<CR>
-map <leader>s :set columns=100<CR>
+map <leader>s :set columns=110<CR>
 
 " escape from insertmode without esc
 inoremap <c-]> <Esc>
@@ -166,20 +168,20 @@ vnoremap j gj
 vnoremap k gk
 
 " Space blättert
-nmap <Space> <PageDown>
-nmap <S-Space> <PageUp>
+" nmap <Space> <PageDown>
+" nmap <S-Space> <PageUp>
 
 " NerdTree
-map <C-e> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+map <C-e> :NERDTreeToggle<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
 
 " Ack-Mapping
-nmap <leader>f :execute ":Ack " . expand("<cword>")<CR>
+" nmap <leader>f :execute ":Ack " . expand("<cword>")<CR>
 
 " folding
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 set foldnestmax=2
 
 " Shortcut to rapidly toggle `set list`
@@ -191,3 +193,30 @@ set listchars=tab:▸\ ,eol:¬
 " VimTips
 " needs brew install w3m
 nmap <leader>t :tabe \| :r ! w3m -dump http://zzapper.co.uk/vimtips.html<CR>
+
+" Wrap enabled
+set wrapscan
+
+" ctags fuer deutsche Tastaturen
+nnoremap <leader>d <c-]>
+vnoremap <leader>d <c-]>
+
+" Unite
+nnoremap <leader>f :<C-u>Unite file<CR>
+nnoremap <leader>d :<C-u>UniteWithBufferDir -short-source-names file<CR>
+nnoremap <leader>b :<C-u>Unite buffer<CR>
+nnoremap <leader>m :<C-u>Unite file_mru<CR>
+nnoremap <leader>j :<C-u>Unite jump<CR>
+nnoremap <leader>o :<C-u>Unite outline<CR>
+nnoremap <leader>g :<C-u>UniteWithCursorWord -buffer-name=Grep grep<CR>
+nnoremap <leader>r :<C-u>UniteResume Grep<CR>
+if executable('ag')
+  " Use ag in unite grep source.
+  let g:unite_source_grep_command = 'ag'
+  let g:unite_source_grep_default_opts =
+        \ '--line-numbers --nocolor --nogroup --hidden ' .
+        \  '--ignore ''node_modules'' --ignore ''.git'''
+  let g:unite_source_grep_recursive_opt = ''
+endif
+nnoremap <leader>l :<C-u>Unite -buffer-name=search line -start-insert<CR>
+

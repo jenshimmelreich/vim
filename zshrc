@@ -22,6 +22,7 @@ SAVEHIST=1000
 setopt INC_APPEND_HISTORY
 HOSTNAME="`hostname -s`"
 PAGER=less
+export LESS='iesrX'
 EDITOR=vim
 
 autoload -U colors && colors
@@ -58,3 +59,5 @@ compdef -d git
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 # PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 source /Users/jens/.rvm/scripts/rvm
+
+export FRICKEDIR=/Users/jens/Work/Workspaces/FrickeProjects
