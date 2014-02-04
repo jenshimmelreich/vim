@@ -36,6 +36,8 @@ export PATH=$PATH:$HOME/bin
 
 FRICKE_PATH=/Users/jens/Work/Workspaces/FrickeProjects/scripts
 export PATH=$PATH:$FRICKE_PATH:$FRICKE_PATH/locals
+COFFEE_HOME=$HOME/Work/Workspaces/FrickeProjects/nodeshared/node_modules/coffee-script
+export PATH=$COFFEE_HOME/bin:$PATH
 
 # PS1='\[\e[0;32m\]\u@\h\[\e[m\]:\[\e[0;34m\]\W\[\e[m\]\$ '
 # PS1='\h:\W \$ '

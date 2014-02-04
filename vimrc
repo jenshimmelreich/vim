@@ -148,12 +148,16 @@ nnoremap <c-l> <c-w>l
 nnoremap <leader>; <c-w>+
 
 map <leader><space> :b!#<CR>
+
 " Search recursive for word under cursor in root of vim-process
 " map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
 " Umstellung von breit (w - 180) auf schmal (s - 80)
 " map <leader>w :set columns=180<CR>
 map <leader>w :set fuoptions+=maxhorz<CR>
 map <leader>s :set columns=110<CR>
+map <leader>8 :set columns=80<CR>
+map <leader>9 :set columns=90<CR>
+map <leader>5 :set columns=150<CR>
 
 " escape from insertmode without esc
 inoremap <c-]> <Esc>
@@ -175,6 +179,9 @@ vnoremap k gk
 map <C-e> :NERDTreeToggle<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
+let NERDTreeWinSize = 44
+autocmd vimenter * if !argc() | set fuoptions+=maxhorz | NERDTree | endif
+" autocmd vimenter * if !argc() | NERDTree | endif
 
 " Ack-Mapping
 " nmap <leader>f :execute ":Ack " . expand("<cword>")<CR>
@@ -192,23 +199,24 @@ set listchars=tab:▸\ ,eol:¬
 
 " VimTips
 " needs brew install w3m
-nmap <leader>t :tabe \| :r ! w3m -dump http://zzapper.co.uk/vimtips.html<CR>
+" nmap <leader>t :tabe \| :r ! w3m -dump http://zzapper.co.uk/vimtips.html<CR>
 
 " Wrap enabled
 set wrapscan
 
 " ctags fuer deutsche Tastaturen
-nnoremap <leader>d <c-]>
-vnoremap <leader>d <c-]>
+" nnoremap <leader>d <c-]>
+" vnoremap <leader>d <c-]>
 
 " Unite
 nnoremap <leader>f :<C-u>Unite file<CR>
 nnoremap <leader>d :<C-u>UniteWithBufferDir -short-source-names file<CR>
-nnoremap <leader>b :<C-u>Unite buffer<CR>
+nnoremap <leader>b :<C-u>Unite -no-split buffer<CR>
 nnoremap <leader>m :<C-u>Unite file_mru<CR>
 nnoremap <leader>j :<C-u>Unite jump<CR>
 nnoremap <leader>o :<C-u>Unite outline<CR>
-nnoremap <leader>g :<C-u>UniteWithCursorWord -buffer-name=Grep grep<CR>
+nnoremap <leader>G :<C-u>UniteWithCursorWord -buffer-name=Grep grep<CR>
+nnoremap <leader>g :<C-u>Unite -buffer-name=Grep grep<CR>
 nnoremap <leader>r :<C-u>UniteResume Grep<CR>
 if executable('ag')
   " Use ag in unite grep source.
@@ -218,5 +226,5 @@ if executable('ag')
         \  '--ignore ''node_modules'' --ignore ''.git'''
   let g:unite_source_grep_recursive_opt = ''
 endif
-nnoremap <leader>l :<C-u>Unite -buffer-name=search line -start-insert<CR>
+nnoremap <leader>l :<C-u>Unite -buffer-name=search line -no-split -start-insert<CR>
 

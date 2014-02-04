@@ -9,3 +9,4 @@ git clone https://github.com/mileszs/ack.vim.git
 git clone https://github.com/nelstrom/vim-markdown-folding.git
 git clone git://github.com/airblade/vim-gitgutter.git
 git clone https://github.com/sjl/gundo.vim.git
+git clone git://github.com/digitaltoad/vim-jade.git
