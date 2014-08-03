@@ -215,8 +215,8 @@ nnoremap <leader>b :<C-u>Unite -no-split buffer<CR>
 nnoremap <leader>m :<C-u>Unite file_mru<CR>
 nnoremap <leader>j :<C-u>Unite jump<CR>
 nnoremap <leader>o :<C-u>Unite outline<CR>
-nnoremap <leader>G :<C-u>UniteWithCursorWord -buffer-name=Grep grep<CR>
-nnoremap <leader>g :<C-u>Unite -buffer-name=Grep grep<CR>
+nnoremap <leader>g :<C-u>UniteWithCursorWord -buffer-name=Grep grep<CR>
+nnoremap <leader>G :<C-u>Unite -buffer-name=Grep grep<CR>
 nnoremap <leader>r :<C-u>UniteResume Grep<CR>
 if executable('ag')
   " Use ag in unite grep source.
@@ -228,3 +228,10 @@ if executable('ag')
 endif
 nnoremap <leader>l :<C-u>Unite -buffer-name=search line -no-split -start-insert<CR>
 
+" JsBeautify, HtmlBeautify, CssBeautif
+autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
+autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
+autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+
+" CtrlP
+let g:ctrlp_custom_ignore = '\v[\/](\.git|data)$'

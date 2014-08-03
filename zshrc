@@ -22,16 +22,21 @@ SAVEHIST=1000
 setopt INC_APPEND_HISTORY
 HOSTNAME="`hostname -s`"
 PAGER=less
-export LESS='iesrX'
+export LESS='isr'
 EDITOR=vim
+
+export JAVA_HOME=`/usr/libexec/java_home -v '1.7*'`
+# export JAVA_HOME=`/usr/libexec/java_home -v '1.6*'`
 
 autoload -U colors && colors
 PROMPT="%{$fg[green]%}%n@$HOST:%1~%%%{$reset_color%} " 
 
-export PATH=$PATH:/usr/local/sbin
+export PATH=/usr/local/bin:$PATH:/usr/local/sbin
 # TeX
 export PATH=$PATH:/usr/local/texlive/2011/bin/x86_64-darwin/
+export PATH=$PATH:/Users/jens/Work/Workspaces/Diverses/gradle-1.12/bin
 
+export PATH=$PATH:/usr/local/share/npm/bin
 export PATH=$PATH:$HOME/bin
 
 FRICKE_PATH=/Users/jens/Work/Workspaces/FrickeProjects/scripts
@@ -63,3 +68,8 @@ compdef -d git
 source /Users/jens/.rvm/scripts/rvm
 
 export FRICKEDIR=/Users/jens/Work/Workspaces/FrickeProjects
+
+# Ant fuer Hybris
+export ANT_OPTS=-Xmx200m
+export ANT_HOME=$FRICKEDIR/hybris/bin/platform/apache-ant-1.8.2
+export PATH=$PATH:$ANT_HOME/bin
