@@ -213,10 +213,10 @@ nnoremap <leader>f :<C-u>Unite file<CR>
 nnoremap <leader>d :<C-u>UniteWithBufferDir -short-source-names file<CR>
 nnoremap <leader>b :<C-u>Unite -no-split buffer<CR>
 nnoremap <leader>m :<C-u>Unite file_mru<CR>
-nnoremap <leader>j :<C-u>Unite jump<CR>
+" nnoremap <leader>j :<C-u>Unite jump<CR>
 nnoremap <leader>o :<C-u>Unite outline<CR>
-nnoremap <leader>g :<C-u>UniteWithCursorWord -buffer-name=Grep grep<CR>
-nnoremap <leader>G :<C-u>Unite -buffer-name=Grep grep<CR>
+nnoremap <leader>G :<C-u>UniteWithCursorWord -buffer-name=Grep grep<CR>
+nnoremap <leader>g :<C-u>Unite -buffer-name=Grep grep<CR>
 nnoremap <leader>r :<C-u>UniteResume Grep<CR>
 if executable('ag')
   " Use ag in unite grep source.
@@ -235,3 +235,51 @@ autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
 
 " CtrlP
 let g:ctrlp_custom_ignore = '\v[\/](\.git|data)$'
+
+" BufferGator
+" nnoremap <leader>j :BuffergatorMruCycleNext<cr>
+" nnoremap <leader>k :BuffergatorMruCyclePrev<cr>
+
+" Tips from: http://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/
+
+" Expand Region
+" vmap v <Plug>(expand_region_expand)
+" vmap <C-v> <Plug>(expand_region_shrink)
+" map K <Plug>(expand_region_expand)
+" map J <Plug>(expand_region_shrink)
+
+" vp doesn't replace paste buffer
+function! RestoreRegister()
+  let @" = s:restore_reg
+  return ''
+endfunction
+function! s:Repl()
+  let s:restore_reg = @"
+  return "p@=RestoreRegister()\<cr>"
+endfunction
+vmap <silent> <expr> p <sid>Repl()
+
+" ctrl-P a lot faster
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . -co --exclude-standard | grep -v -E "data|node_modules"', 'find %s -type f | grep -v -E "data|node_modules"']
+let g:ctrlp_use_caching = 1
+let g:ctrlp_by_filename = 1
+
+" Format Paragraph gqip (gq - format, ip inner Paragraph)
+
+" Better Text Writing
+function! Text1()
+  set foldcolumn=12
+  highlight FoldColumn guibg=white guifg=black
+  set columns=110
+endfunction
+command Text :execute Text1()
+function! Raw1()
+  set foldcolumn=0
+  set guifont=Monaco:h14
+  set fuoptions=background:Normal
+endfunction
+command Raw :execute Raw1()
+function! Fira1()
+  set guifont=Fira\ Mono:h14
+endfunction
+command Fira :execute Fira1()
