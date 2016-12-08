@@ -91,9 +91,14 @@ set smartcase
 set vb
 
 if has('gui_running')
- colorscheme mac_classic
-"  colorscheme solarized
-"  set background=dark
+  colorscheme mac_classic
+  "  colorscheme solarized
+  "  set background=dark
+
+  " Statusline
+  let g:airline_theme='simple'
+  " let g:airline_left_sep=''
+  " let g:airline_right_sep=''
 endif
 " Make tab in v mode work like I think it should (keep highlighting):
 vmap <tab> >gv
@@ -176,11 +181,13 @@ vnoremap k gk
 " nmap <S-Space> <PageUp>
 
 " NerdTree
-map <C-e> :NERDTreeToggle<CR>
+map <C-n> :NERDTreeToggle<CR>
 map <leader>e :NERDTreeFind<CR>
 nmap <leader>nt :NERDTreeFind<CR>
 let NERDTreeWinSize = 44
-autocmd vimenter * if !argc() | set fuoptions+=maxhorz | NERDTree | endif
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | set invfu | endif
+" autocmd vimenter * if !argc() | set fuoptions+=maxhorz | NERDTree | endif
 " autocmd vimenter * if !argc() | NERDTree | endif
 
 " Ack-Mapping
@@ -214,7 +221,7 @@ nnoremap <leader>d :<C-u>UniteWithBufferDir -short-source-names file<CR>
 nnoremap <leader>b :<C-u>Unite -no-split buffer<CR>
 nnoremap <leader>m :<C-u>Unite file_mru<CR>
 " nnoremap <leader>j :<C-u>Unite jump<CR>
-nnoremap <leader>o :<C-u>Unite outline<CR>
+" nnoremap <leader>o :<C-u>Unite outline<CR>
 nnoremap <leader>G :<C-u>UniteWithCursorWord -buffer-name=Grep grep<CR>
 nnoremap <leader>g :<C-u>Unite -buffer-name=Grep grep<CR>
 nnoremap <leader>r :<C-u>UniteResume Grep<CR>
@@ -283,3 +290,31 @@ function! Fira1()
   set guifont=Fira\ Mono:h14
 endfunction
 command Fira :execute Fira1()
+
+" JSX-Highlighting for JS-Files
+let g:jsx_ext_required = 0
+
+" emmit with c-z (original: c-y)
+let g:user_emmet_leader_key='<c-z>'
+
+" Syntastic
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+" 
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers = ['eslint']
+nnoremap <leader>c :SyntasticCheck<CR>
+
+" Print Header
+set printheader=%<%f%h%m%=%N
+
+" Navigating help
+nnoremap ö <C-]>
+nnoremap Ö <C-t>
+
+" Search for selected Text
+vnoremap // y/<C-R>"<CR>
