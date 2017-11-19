@@ -2,11 +2,15 @@ cd ~/.vim/bundle
 # Interessant: https://github.com/carlhuda/janus.git
 git clone https://github.com/scrooloose/nerdtree.git
 git clone https://github.com/scrooloose/syntastic.git
-git clone https://github.com/kchmck/vim-coffee-script.git
-git clone https://github.com/tpope/vim-fugitive
+# git clone https://github.com/kchmck/vim-coffee-script.git
+# git clone https://github.com/tpope/vim-fugitive
 git clone https://github.com/ddollar/nerdcommenter.git
-git clone https://github.com/mileszs/ack.vim.git
-git clone https://github.com/nelstrom/vim-markdown-folding.git
-git clone git://github.com/airblade/vim-gitgutter.git
-git clone https://github.com/sjl/gundo.vim.git
-git clone git://github.com/digitaltoad/vim-jade.git
+# git clone https://github.com/mileszs/ack.vim.git
+# git clone https://github.com/nelstrom/vim-markdown-folding.git
+# git clone git://github.com/airblade/vim-gitgutter.git
+# git clone https://github.com/sjl/gundo.vim.git
+# git clone git://github.com/digitaltoad/vim-jade.git
+git clone https://github.com/junegunn/goyo.vim.git
+git clone https://github.com/vim-airline/vim-airline.git
+git clone https://github.com/junegunn/limelight.vim.git
+
