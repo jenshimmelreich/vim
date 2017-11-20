@@ -26,6 +26,9 @@ set hlsearch      " highlight searches
 " set number        " show linenumbers
 
 " set scrolloff=3   " keep 3 lines when scrolling
+" Markdown is now included in vim, but by default .md is read as Modula-2
+" files.  This fixes that, because I don't ever edit Modula-2 files :)
+autocmd BufNewFile,BufReadPost *.md,*.markdown set filetype=markdown
 
 syntax on               " turn syntax highlighting on by default
 filetype on             " detect type of file
@@ -274,22 +277,27 @@ let g:ctrlp_by_filename = 1
 " Format Paragraph gqip (gq - format, ip inner Paragraph)
 
 " Better Text Writing
-function! Text1()
-  set foldcolumn=12
-  highlight FoldColumn guibg=white guifg=black
-  set columns=110
-endfunction
-command Text :execute Text1()
-function! Raw1()
-  set foldcolumn=0
-  set guifont=Monaco:h14
-  set fuoptions=background:Normal
-endfunction
-command Raw :execute Raw1()
-function! Fira1()
-  set guifont=Fira\ Mono:h14
-endfunction
-command Fira :execute Fira1()
+" Deprecated, use Goyo
+" function! Text1()
+"   set foldcolumn=12
+"   highlight FoldColumn guibg=white guifg=black
+"   set columns=110
+" endfunction
+" command Text :execute Text1()
+" function! Raw1()
+"   set foldcolumn=0
+"   set guifont=Monaco:h14
+"   set fuoptions=background:Normal
+" endfunction
+" command Raw :execute Raw1()
+" function! Fira1()
+"   set guifont=Fira\ Mono:h14
+" endfunction
+" command Fira :execute Fira1()
+
+" Goyo -> Fokus auf den aktuellen Absatz
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " JSX-Highlighting for JS-Files
 let g:jsx_ext_required = 0
@@ -306,7 +314,7 @@ let g:user_emmet_leader_key='<c-z>'
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint']
 nnoremap <leader>c :SyntasticCheck<CR>
 
 " Print Header
