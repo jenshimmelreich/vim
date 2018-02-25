@@ -161,7 +161,6 @@ map <leader><space> :b!#<CR>
 " map <leader>f :execute "grep -r --exclude git " . expand("<cword>") . " . " <Bar> cw <CR>
 " Umstellung von breit (w - 180) auf schmal (s - 80)
 " map <leader>w :set columns=180<CR>
-map <leader>w :set fuoptions+=maxhorz<CR>
 map <leader>s :set columns=110<CR>
 map <leader>8 :set columns=80<CR>
 map <leader>9 :set columns=90<CR>
@@ -275,6 +274,11 @@ let g:ctrlp_use_caching = 1
 let g:ctrlp_by_filename = 1
 
 " Format Paragraph gqip (gq - format, ip inner Paragraph)
+nnoremap Q gqip
+nnoremap <leader>Q vipJ
+set nojs
+" convert delete all hard wraps inside Paragraphs
+" :%norm vipJ
 
 " Better Text Writing
 " Deprecated, use Goyo
@@ -296,8 +300,26 @@ let g:ctrlp_by_filename = 1
 " command Fira :execute Fira1()
 
 " Goyo -> Fokus auf den aktuellen Absatz
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+" autocmd! User GoyoEnter Limelight
+" autocmd! User GoyoLeave Limelight!
+map <leader>w :Goyo<CR>
+let g:goyo_width = 65
+function! s:goyo_enter()
+  colorscheme ia_writer
+  set guifont=IBM\ Plex\ Mono:h18
+  set linespace=10
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  Limelight!
+  colorscheme mac_classic
+  set guifont=Monaco:h14
+  set linespace=0
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " JSX-Highlighting for JS-Files
 let g:jsx_ext_required = 0
