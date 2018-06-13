@@ -218,6 +218,12 @@ set wrapscan
 " vnoremap <leader>d <c-]>
 
 " Unite
+" <leader> f - file
+"          b - buffer
+"          g - grep
+"          G - grep with cursor word
+"          r - resume grep
+"          l - filter lines
 nnoremap <leader>f :<C-u>Unite file<CR>
 nnoremap <leader>d :<C-u>UniteWithBufferDir -short-source-names file<CR>
 nnoremap <leader>b :<C-u>Unite -no-split buffer<CR>
@@ -308,6 +314,9 @@ function! s:goyo_enter()
   colorscheme ia_writer
   set guifont=IBM\ Plex\ Mono:h18
   set linespace=10
+  set textwidth=65
+  set noshowmode
+  " set scrolloff=999
   Limelight
 endfunction
 
@@ -316,6 +325,9 @@ function! s:goyo_leave()
   colorscheme mac_classic
   set guifont=Monaco:h14
   set linespace=0
+  set textwidth=78
+  set showmode
+  " set scrolloff=0
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
@@ -348,3 +360,7 @@ nnoremap Ö <C-t>
 
 " Search for selected Text
 vnoremap // y/<C-R>"<CR>
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/Documents/vimwiki/',
+                     \ 'syntax': 'markdown', 'ext': '.wiki'}]
